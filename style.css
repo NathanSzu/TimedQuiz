@@ -64,7 +64,7 @@ main {
 }
 
 /* Scoreboard input form */
-#score-input {
+.score-input {
     display: none;
     position: absolute;
     left: 0px;
@@ -76,4 +76,32 @@ main {
 
 .scoreForm {
     margin: 80px;
+}
+
+ul {
+    text-align: start;
+    list-style: none;
+    margin-top: 10px;
+    margin-left: 25%;
+}
+
+h2 {
+    text-align: start;
+    margin-top: 25px;
+    margin-left: 25%;
+}
+
+li {
+    font-size: 24px;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+#scores {
+    height: 100%;
+}
+
+.listwrap {
+    padding: 20px;
+    background-color: grey;
 }

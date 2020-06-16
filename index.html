@@ -21,10 +21,10 @@
                     <a class="nav-item nav-link" id="leaderboard" href="#">High Scores</a>
                 </div>
                 <div class="middle col-sm-4">
-                    <a class="nav-item nav-link active" href="#">Quiz Home<span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link active" href="index.html">Quiz Home<span class="sr-only">(current)</span></a>
                 </div>
                 <div class="right col-sm-4">
-                    <a class="nav-item nav-link" id="timer" href="#">Time Remaining</a>
+                    <a class="nav-item nav-link" id="timer" href="#">Time Remaining: 0</a>
                 </div>
             </div>
         </nav>
@@ -47,15 +47,23 @@
             <div class="col-md-12 answers" id="answer-four">
                 <button class="btn btn-primary btn-lg answerButton" id="D" onclick="selectD()" role="button"></button>
             </div>
-            <div id="score-input">
-                <form action="" class="scoreForm">
-                    <h1 id="scoredata">lala</h1>
-                    <input type="text" placeholder="Enter Initials" name="Initials" id="initials">
+            <!-- Hidden div that reveals at end of game to allow user input for initials -->
+            <div class="score-input" id="score-input">
+                <form action="" class="scoreForm" id="scoreForm">
+                    <h1 id="scoredata"></h1>
+                    <input type="text"  placeholder="Enter Initials" name="Initials" id="initials">
                     <hr>
-                    <input type="submit" value="Submit">
+                    <input type="submit" onclick="writeToScoreboard()" value="Submit">
                 </form>
-                <div id="score">
 
+                <div class="score-input col-md-12" id="scores">
+                    <div class="listwrap">
+                        <h2>Scoreboard</h2>
+                        <ul class="col-md-12" id="listOfScores"></ul>
+                    </div>
+                    
+
+                    
                 </div>
             </div>
         </main>

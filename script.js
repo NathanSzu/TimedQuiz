@@ -8,20 +8,28 @@ var points = 0;
 // Variable to contain the remaining time on the clock.
 var timeLeft = 100;
 
+scoreBoardAdd = "";
+scoreBoardAdd2 = "";
+
 var firstButton = document.getElementById("A");
 var secondButton = document.getElementById("B");
 var thirdButton = document.getElementById("C");
 var fourthButton = document.getElementById("D");
 
+var localStoredInitialList = []
+var localStoredScoreList = []
+
+
+localStoredInitialList = JSON.parse(localStorage.getItem("highScoreInitials"));
+localStoredScoreList = JSON.parse(localStorage.getItem("highScores"));
+
+
+
+
+
 var i = 0;
 
 finalAnswer = "";
-
-// Variables to hold the answer text displayed on buttons for each question.
-var answerOne = "";
-var answerTwo = "";
-var answerThree = "";
-var answerFour = "";
 
 var question1 = {
     question: "Question text.",
@@ -69,17 +77,9 @@ var questionPool = [question1, question2, question3, question4, question5]
 // Array Variable containing the answer key.
 var answers = ["Test", "Question2 answer", "Question3 answer", "Question4 answer", "Question5 answer"];
 
-function returnAns(){
-    return buttonCreate1.textContent
-
-};
-
 // On page load, display quiz instructions and a button to begin the quiz.
 // Display button to view high scores & display the countdown timer.
-function setUp(){
-// Starts the countdown
-    timerStart();
-    
+function setUp(){ 
 // Removes the "Begin quiz" button
     var objectRemove = document.getElementById("remove1")
     objectRemove.remove();
@@ -96,6 +96,9 @@ function setUp(){
     var showButtonD = document.getElementById("D");
     showButtonD.style.display="block";
 
+    // Starts the countdown
+    timerStart();
+
     // When the begin quiz button is clicked, start the countdown time and display the first question with nextQuestion and timerStart question.
     nextQuestion();
 };
@@ -106,7 +109,7 @@ function selectA(){
 };
 
 function selectB(){
-    finalAnswer = secondButton.value;
+    finalAnswer = secondButton.textContent;
     nextQuestion();
 };
 
@@ -125,6 +128,7 @@ function selectD(){
 function answerCheck(){
     if (finalAnswer === answers[i]) {
         console.log("correct");
+        points = points + 10;
         i++;
     }
     else {
@@ -149,8 +153,60 @@ function nextQuestion(){
     thirdButton.textContent = questionPool[i].answer3;
     fourthButton.textContent = questionPool[i].answer4;
 
-    answerCheck();
+    if (finalAnswer === "") {
+        
+    } else {
+        answerCheck(); 
+    };
+    
 
+};
+
+function writeToScoreboard(){
+    event.preventDefault();
+
+    var scoreBoardAddInitials = document.getElementById("scoreForm").elements[0].value;
+        scoreBoardAdd = scoreBoardAddInitials;
+
+        scoreBoardAdd2 = points;
+
+    if (scoreBoardAdd === ""){
+        alert("Please enter your initials!")
+        event.preventDefault();   
+    }
+    else if (scoreBoardAdd !== ""){
+
+        localStoredInitialList.push(scoreBoardAdd);
+        localStoredScoreList.push(scoreBoardAdd2);
+        console.log(scoreBoardAdd);
+        console.log(scoreBoardAdd2);
+
+        localStorage.setItem("highScores", JSON.stringify(localStoredScoreList))
+        localStorage.setItem("highScoreInitials", JSON.stringify(localStoredInitialList))
+
+        showScoreboard();
+    }
+};
+
+function showScoreboard(){
+    event.preventDefault();
+    timeLeft = 100;
+    var scoreList = document.getElementById("scores");
+    scoreList.style.display="block";
+
+    
+
+    console.log(localStoredInitialList);
+    console.log(localStoredScoreList);
+
+    for (let x = 0; x < localStoredInitialList.length; x++) {
+        var scoreAdd = document.createElement("LI");
+        var scoreNode = document.createTextNode(localStoredInitialList[x] + ": " + localStoredScoreList[x]);
+        scoreAdd.appendChild(scoreNode);
+        document.getElementById("listOfScores").appendChild(scoreAdd)
+
+        
+    }
 };
 
 function scoreBoardInput(){
@@ -169,11 +225,17 @@ function timerStart(){
 
         if (timeLeft===0) {
             clearInterval(interval);
+            timeLeft = 100;
             scoreBoardInput();
             
         }
+        else if (i === questionPool.length){
+            clearInterval(interval);
+            timeLeft = 100;
+            scoreBoardInput();
+        }
 
-    }, 1000)
+    }, 100)
 }
 
 
