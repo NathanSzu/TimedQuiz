@@ -53,3 +53,27 @@ right: 0px;
     align-content: center;
     text-align: center;
 }
+
+.answerButton {
+    margin: 3px;
+    display: none;
+}
+
+main {
+    position: relative;
+}
+
+/* Scoreboard input form */
+#score-input {
+    display: none;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    height: 100%;
+    background-color: grey;
+}
+
+.scoreForm {
+    margin: 80px;
+}

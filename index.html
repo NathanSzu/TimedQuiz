@@ -29,15 +29,35 @@
             </div>
         </nav>
         <main class="jumbotron j-center">
-            <p class="lead">This is a timed quiz intended to asses your familiarity with Javascript concepts and terminology. Answer as many questions as you can in the time allowed and enter your initials to be added to the scoreboard. Each correct answer will net you five points! For each wrong answer, 5 second will be subtracted from your time.</p>
+            <p class="lead" id="questionCaller">This is a timed quiz intended to asses your familiarity with Javascript concepts and terminology. Answer as many questions as you can in the time allowed and enter your initials to be added to the scoreboard. Each correct answer will net you five points! For each wrong answer, 5 second will be subtracted from your time.</p>
             <hr class="my-2">
             <p class="lead">
                 <button class="btn btn-primary btn-lg" id="remove1" onclick="setUp()" role="button">Begin Quiz</button>
+                
             </p>
-            <div class="col-md-12" id="answer-one"></div>
-            <div class="col-md-12" id="answer-two"></div>
-            <div class="col-md-12" id="answer-three"></div>
-            <div class="col-md-12" id="answer-four"></div>
+            <div class="col-md-12 answers" id="answer-one">
+                <button class="btn btn-primary btn-lg answerButton" id="A" onclick="selectA()" role="button"></button>
+            </div>
+            <div class="col-md-12 answers" id="answer-two">
+                <button class="btn btn-primary btn-lg answerButton" id="B" onclick="selectB()" role="button"></button>
+            </div>
+            <div class="col-md-12 answers" id="answer-three">
+                <button class="btn btn-primary btn-lg answerButton" id="C" onclick="selectC()" role="button"></button>
+            </div>
+            <div class="col-md-12 answers" id="answer-four">
+                <button class="btn btn-primary btn-lg answerButton" id="D" onclick="selectD()" role="button"></button>
+            </div>
+            <div id="score-input">
+                <form action="" class="scoreForm">
+                    <h1 id="scoredata">lala</h1>
+                    <input type="text" placeholder="Enter Initials" name="Initials" id="initials">
+                    <hr>
+                    <input type="submit" value="Submit">
+                </form>
+                <div id="score">
+
+                </div>
+            </div>
         </main>
       
     <script src="script.js"></script>
