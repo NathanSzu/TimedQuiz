@@ -8,20 +8,20 @@ var points = 0;
 // Variable to contain the remaining time on the clock.
 var timeLeft = 100;
 
-scoreBoardAdd = "";
-scoreBoardAdd2 = "";
+scoreBoardAdd = [];
+scoreBoardAdd2 = [];
 
 var firstButton = document.getElementById("A");
 var secondButton = document.getElementById("B");
 var thirdButton = document.getElementById("C");
 var fourthButton = document.getElementById("D");
 
-var localStoredInitialList = []
-var localStoredScoreList = []
+var localStoredInitialList = [];
+var localStoredScoreList = [];
 
 
-localStoredInitialList = JSON.parse(localStorage.getItem("highScoreInitials"));
-localStoredScoreList = JSON.parse(localStorage.getItem("highScores"));
+localStoredInitialList = JSON.parse(localStorage.getItem("highScoreInitials")) || [];
+localStoredScoreList = JSON.parse(localStorage.getItem("highScores")) || [];
 
 
 
@@ -191,23 +191,31 @@ function writeToScoreboard(){
 function showScoreboard(){
     event.preventDefault();
     timeLeft = 100;
+    var SBD = document.getElementById("score-input");
+    SBD.style.display="block";
     var scoreList = document.getElementById("scores");
     scoreList.style.display="block";
 
     
 
-    console.log(localStoredInitialList);
-    console.log(localStoredScoreList);
+    // console.log(localStoredInitialList);
+    // console.log(localStoredScoreList);
+    document.getElementById("listOfScores").innerHTML = "";
 
     for (let x = 0; x < localStoredInitialList.length; x++) {
         var scoreAdd = document.createElement("LI");
         var scoreNode = document.createTextNode(localStoredInitialList[x] + ": " + localStoredScoreList[x]);
         scoreAdd.appendChild(scoreNode);
         document.getElementById("listOfScores").appendChild(scoreAdd)
-
-        
     }
 };
+
+
+var listen4HighScore = document.getElementById("leaderboard");
+listen4HighScore.addEventListener("click", function(){
+    console.log("AWESOME!");
+    showScoreboard();
+});
 
 function scoreBoardInput(){
     var SBD = document.getElementById("score-input");
@@ -237,6 +245,14 @@ function timerStart(){
 
     }, 100)
 }
+
+function resetScores(){
+    localStoredInitialList = [];
+    localStoredScoreList = [];
+    localStorage.setItem("highScores", JSON.stringify(localStoredScoreList))
+    localStorage.setItem("highScoreInitials", JSON.stringify(localStoredInitialList))
+
+};
 
 
 console.log(questionPool[i])

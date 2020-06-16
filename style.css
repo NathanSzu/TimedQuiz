@@ -54,6 +54,10 @@ right: 0px;
     text-align: center;
 }
 
+.viewscreen {
+    z-index: 1;
+}
+
 .answerButton {
     margin: 3px;
     display: none;
@@ -99,6 +103,7 @@ li {
 
 #scores {
     height: 100%;
+    z-index: 99999;
 }
 
 .listwrap {

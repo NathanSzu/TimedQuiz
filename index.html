@@ -28,7 +28,7 @@
                 </div>
             </div>
         </nav>
-        <main class="jumbotron j-center">
+        <main class="jumbotron j-center viewscreen">
             <p class="lead" id="questionCaller">This is a timed quiz intended to asses your familiarity with Javascript concepts and terminology. Answer as many questions as you can in the time allowed and enter your initials to be added to the scoreboard. Each correct answer will net you five points! For each wrong answer, 5 second will be subtracted from your time.</p>
             <hr class="my-2">
             <p class="lead">
@@ -54,6 +54,7 @@
                     <input type="text"  placeholder="Enter Initials" name="Initials" id="initials">
                     <hr>
                     <input type="submit" onclick="writeToScoreboard()" value="Submit">
+                    <input type="reset" onclick="resetScores()" value="Reset Scores">
                 </form>
 
                 <div class="score-input col-md-12" id="scores">
