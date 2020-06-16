@@ -75,7 +75,7 @@ var question5 = {
 var questionPool = [question1, question2, question3, question4, question5]
 
 // Array Variable containing the answer key.
-var answers = ["<script>", "alert(“Hello World!”);", "<script src=”script.js”>", "False", "Question5 answer"];
+var answers = ["<script>", "alert(“Hello World!”);", "<script src=”script.js”>", "False", ".innerHTML"];
 
 // On page load, display quiz instructions and a button to begin the quiz.
 // Display button to view high scores & display the countdown timer.
