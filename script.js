@@ -32,50 +32,50 @@ var i = 0;
 finalAnswer = "";
 
 var question1 = {
-    question: "Question text.",
-    answer1: "Test",
-    answer2: "Test",
-    answer3: "Test",
-    answer4: "Answer 4 text."
+    question: "What is the HTML tag under which one can write the JavaScript code?",
+    answer1: "<javascript>",
+    answer2: "<scripted>",
+    answer3: "<script>",
+    answer4: "<js>"
 };
 
 var question2 = {
-    question: "Question text.",
-    answer1: "Answer 1 ahdbsl.",
-    answer2: "Answer 2 text.",
-    answer3: "Answer 3 text.",
-    answer4: "Answer 4 text."
+    question: "Which of the following is the correct syntax to display “Hello World!” in an alert box using JavaScript?",
+    answer1: "alertbox(“Hello World!”);",
+    answer2: "msg(“Hello World!”);",
+    answer3: "alert(“hello-world”);",
+    answer4: "alert(“Hello World!”);"
 };
 
 var question3 = {
-    question: "Question text.",
-    answer1: "Test",
-    answer2: "Answer 2 text.",
-    answer3: "Answer 3 text.",
-    answer4: "Answer 4 text."
+    question: "What is the correct syntax for referring to an external script called “script.js”?",
+    answer1: "<script src=”script.js”>",
+    answer2: "<script href=”script.js”>",
+    answer3: "<script ref=”script.js”>",
+    answer4: "<script name=”script.js”>"
 };
 
 var question4 = {
-    question: "Question text.",
-    answer1: "Answer 1 klzsxcivbnlkjdsaf.",
-    answer2: "Answer 2 text.",
-    answer3: "Answer 3 text.",
-    answer4: "Answer 4 text."
+    question: "The external JavaScript file must contain <script> tag. True or False?",
+    answer1: "True",
+    answer2: "False",
+    answer3: "I don't know",
+    answer4: "What is Javascript?"
 };
 
 var question5 = {
-    question: "Question text.",
-    answer1: "Answer 1 text.",
-    answer2: "Answer 2 text.",
-    answer3: "Answer 3 text.",
-    answer4: "Answer 4 text."
+    question: "What Javascript method can we use to change the text between two HTML tags?",
+    answer1: ".addEventListener",
+    answer2: ".createElement",
+    answer3: ".getElementById",
+    answer4: ".innerHTML"
 };
 
 // Object variables containing the questions and all possible answers/
 var questionPool = [question1, question2, question3, question4, question5]
 
 // Array Variable containing the answer key.
-var answers = ["Test", "Question2 answer", "Question3 answer", "Question4 answer", "Question5 answer"];
+var answers = ["<script>", "alert(“Hello World!”);", "<script src=”script.js”>", "False", "Question5 answer"];
 
 // On page load, display quiz instructions and a button to begin the quiz.
 // Display button to view high scores & display the countdown timer.
@@ -105,21 +105,29 @@ function setUp(){
 
 function selectA(){
     finalAnswer = firstButton.textContent;
+    answerCheck();
+    i++;
     nextQuestion();
 };
 
 function selectB(){
     finalAnswer = secondButton.textContent;
+    answerCheck();
+    i++;
     nextQuestion();
 };
 
 function selectC(){
     finalAnswer = thirdButton.textContent;
+    answerCheck();
+    i++;
     nextQuestion();
 };
 
 function selectD(){
     finalAnswer = fourthButton.textContent;
+    answerCheck();
+    i++;
     nextQuestion();
 };
 
@@ -129,21 +137,16 @@ function answerCheck(){
     if (finalAnswer === answers[i]) {
         console.log("correct");
         points = points + 10;
-        i++;
+        // i++;
     }
     else {
         console.log("wrong");
         timeLeft = timeLeft-5;
-        i++;
+        // i++;
     }
-
-
 };
 
 function nextQuestion(){
-
-    
-
     var questionPopulate = document.getElementById("questionCaller");
     questionPopulate.textContent = questionPool[i].question;
 
@@ -152,14 +155,6 @@ function nextQuestion(){
     secondButton.textContent = questionPool[i].answer2;
     thirdButton.textContent = questionPool[i].answer3;
     fourthButton.textContent = questionPool[i].answer4;
-
-    if (finalAnswer === "") {
-        
-    } else {
-        answerCheck(); 
-    };
-    
-
 };
 
 function writeToScoreboard(){
@@ -243,7 +238,7 @@ function timerStart(){
             scoreBoardInput();
         }
 
-    }, 100)
+    }, 1000)
 }
 
 function resetScores(){
