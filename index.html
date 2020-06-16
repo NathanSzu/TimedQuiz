@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Coding Quiz-A-Thon</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+        <header>
+            <div>
+                <h1 class="header">Coding Quiz-A-Thon</h1>
+            </div>
+        </header>
+        <nav class="navbar navbar-expand navbar-light bg-light">
+            <div class="nav navbar-nav">
+                <div class="left col-sm-4">
+                    <a class="nav-item nav-link" id="leaderboard" href="#">High Scores</a>
+                </div>
+                <div class="middle col-sm-4">
+                    <a class="nav-item nav-link active" href="#">Quiz Home<span class="sr-only">(current)</span></a>
+                </div>
+                <div class="right col-sm-4">
+                    <a class="nav-item nav-link" id="timer" href="#">Time Remaining</a>
+                </div>
+            </div>
+        </nav>
+        <main class="jumbotron j-center">
+            <p class="lead">This is a timed quiz intended to asses your familiarity with Javascript concepts and terminology. Answer as many questions as you can in the time allowed and enter your initials to be added to the scoreboard. Each correct answer will net you five points! For each wrong answer, 5 second will be subtracted from your time.</p>
+            <hr class="my-2">
+            <p class="lead">
+                <button class="btn btn-primary btn-lg" id="remove1" onclick="setUp()" role="button">Begin Quiz</button>
+            </p>
+            <div class="col-md-12" id="answer-one"></div>
+            <div class="col-md-12" id="answer-two"></div>
+            <div class="col-md-12" id="answer-three"></div>
+            <div class="col-md-12" id="answer-four"></div>
+        </main>
+      
+    <script src="script.js"></script>
+  </body>
+</html>

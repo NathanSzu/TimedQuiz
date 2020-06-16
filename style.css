@@ -1,0 +1,55 @@
+/* Coding Quiz Title */
+.header {
+    margin: 25px;
+    text-align: center;
+}
+
+
+/* Nav bar */
+.nav-position {
+position: relative;
+}
+
+.nav {
+    width: 100%;
+}
+
+.leaderboard {
+position: absolute;
+margin: 0px;
+padding: 0px;
+right: 0px;
+}
+
+.middle {
+    text-align: center;
+}
+
+
+.left {
+    text-align: start;
+}
+
+.right {
+    text-align: end;
+}
+
+@media screen and (max-width: 640px) {
+
+    .left {
+        text-align: center;
+    }
+
+    .right {
+        text-align: center;
+    }
+
+}
+
+/* Main content */
+
+.j-center {
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
